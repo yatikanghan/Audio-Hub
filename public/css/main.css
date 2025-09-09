@@ -196,7 +196,38 @@ footer {
 .mainheader {
     display: flex;
     justify-content: space-between;
-    background-color: #000;
-    padding: 10px 30px;
+    background-color: #1f1f1f;
+    padding: 10px 60px;
     
+}
+
+.leftpanel{
+    background-color: #1f1f1f;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+}
+.leftcard{
+    text-align: center;
+}
+.leftcard p{
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+}
+.leftcardlink{
+    text-align: center;
+    color: #fff;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+.leftcardlink:hover
+{
+    text-align: center;
+    color: #fff;
+    background-color: #333;
+
 }

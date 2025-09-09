@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #3a86ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_signin_page">
+        <div class="signin_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="leftsidesignin text-center">
+                            <br><br><br>
+                            <h1><i class="bi bi-speaker"></i></h1>
+                            <h2> Audio Hub</h2>
+                            <br>
+                            <h4>Welcome Back!</h4>
+                            <p>Sign in to continue your audio journey with AudioHub <br> for amazing user experience</p>
+                            <br>
+                            <div style="align-items: center; display: inline; width: fit-content;">
+                                <ul style="list-style: none; width: auto; text-align: justify;">
+                                    <li><i class="bi bi-check-circle"></i> &nbsp;&nbsp; Access your order history</li>
+                                    <li><i class="bi bi-check-circle"></i> &nbsp;&nbsp; Save products to your wishlist</li>
+                                    <li><i class="bi bi-check-circle"></i> &nbsp;&nbsp; Faster checkout experience</li>
+                                    <li><i class="bi bi-check-circle"></i> &nbsp;&nbsp; Exclusive member discounts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="rightsidesignin">
+                            <br><br>
+                            <h1>Sign In</h1>
+                            <p class="form-subtitle">Enter your details to access your account</p>
+                            <% if (loginerr.length > 0) { %>
+                                <div class="alert alert-danger">
+                                  <% loginerr.forEach(function(err){ %>
+                                    <p><%= loginerr %></p>
+                                  <% }) %>
+                                </div>
+                              <% } %>
+                            <form class="form" action="/login" method="post">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                                        <span class="input-group-text cursor-pointer" id="togglePassword">
+                                            <i class="bi bi-eye"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <a href="#" class="text-decoration-none">Forgot password?</a>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn-primary btn-login">Sign In</button>
+                            </form>
+                            <br>
+                            <hr>
+
+                            <div class="signup-link text-center">
+                                Don't have an account?<br> <a href="/register" style="color: #fff; text-decoration: none;">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="js/style.js"></script>
+</body>
+</html>

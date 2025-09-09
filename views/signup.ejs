@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #3a86ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_signin_page">
+        <div class="signin_container" style="padding: 50px;">
+            <form action="/register" method="post">
+                <div class="container">
+                    <div class="row">
+                        <br>
+                        <h1>Sign Up</h1>
+                        <p class="form-subtitle">Enter your details to access your account</p>
+                        <% if (useralredyregistered.length > 0) { %>
+                            <div class="alert alert-danger">
+                              <% useralredyregistered.forEach(function(err){ %>
+                                <p><%= useralredyregistered %></p>
+                              <% }) %>
+                            </div>
+                          <% } %>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="name" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="mobile" class="form-label">Mobile Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-speaker"></i></span>
+                                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                                    <span class="input-group-text cursor-pointer" id="togglePassword">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3">
+                            <br><br>
+                        <button type="submit" class="btn-primary btn-login" style="width: 100%;">Sign Up</button>
+                        <br><br>
+                        <div class="signup-link text-center">
+                            <hr>
+                            I have an account?<br> <a href="/login" style="color: #fff; text-decoration: none;">Sign In</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="js/style.js"></script>
+</body>
+</html>

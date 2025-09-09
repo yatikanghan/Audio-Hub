@@ -1,0 +1,21 @@
+{
+  "name": "audio-hub",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Yatik Anghan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.2",
+    "mongoose": "^8.18.1"
+  }
+}

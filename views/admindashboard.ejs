@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <style>
         body{
             padding-top: 0;
@@ -24,15 +25,114 @@
                         <p>Administration</p>
                     </div>
                 </a>
-                <a href="#" style="text-decoration: none;">
+                <a href="/admindashboard" style="text-decoration: none;">
                     <div class="leftcardlink">
+                        <img src="images/dashboard.png" alt="">
                         <p>Dashboard</p>
+                    </div>
+                </a>
+                <a href="/adminorder" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/order.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Orders</p>
+                    </div>
+                </a>
+                <a href="/adminproduct" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/product.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Products</p>
+                    </div>
+                </a>
+                <a href="/admincustomer" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/user.png" alt="">
+                        <p>Customers</p>
                     </div>
                 </a>
 
             </div>
             <div class="col-lg-10">
-
+                <div class="dashboard_main">
+                    <h2>Admin Dashboard</h2>
+                    <br>
+                    <br>
+                    
+                    <div class="row mb-4">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="dashboard-card card border-0 h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Orders</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="card-icon bg-warning text-white">
+                                                <i class="bi bi-clock-history"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="dashboard-card card border-0 h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Sales</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$24,582</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="card-icon bg-primary text-white">
+                                                <i class="bi bi-currency-dollar"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="dashboard-card card border-0 h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Orders</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">142</div>
+                                            
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="card-icon bg-success text-white">
+                                                <i class="bi bi-cart-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="dashboard-card card border-0 h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Customers</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2,846</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="card-icon bg-info text-white">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -141,3 +141,15 @@ app.get("/admindashboard", (req,res) => {
     const user = req.session.user;
     res.render("admindashboard.ejs", { user : user});
 });
+app.get('/adminproduct', (req,res) => {
+    const user = req.session.user;
+    res.render("adminproduct.ejs", { user : user});
+});
+app.get('/adminorder', (req,res) => {
+    const user = req.session.user;
+    res.render("adminorder.ejs", { user : user});
+});
+app.get('/admincustomer', (req,res) => {
+    const user = req.session.user;
+    res.render("admincustomer.ejs", { user : user});
+});

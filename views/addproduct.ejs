@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioHub - Premium Audio Equipment</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <style>
+        body{
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <%- include('adminheader.ejs') %>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="leftpanel col-lg-2 pt-2">
+                <a href="#" style="text-decoration: none;">
+                    <div class="leftcard">
+                        <p>Administration</p>
+                    </div>
+                </a>
+                <a href="/admindashboard" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/dashboard.png" alt="">
+                        <p>Dashboard</p>
+                    </div>
+                </a>
+                <a href="/adminorder" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/order.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Orders</p>
+                    </div>
+                </a>
+                <a href="/adminproduct" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/product.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Products</p>
+                    </div>
+                </a>
+                <a href="/admincustomer" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="images/user.png" alt="">
+                        <p>Customers</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-lg-10">
+                <div class="dashboard_main">
+                    <h2>Add New Product</h2>
+                    <br>
+                    
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .card { border-radius: 1rem; }
+    .form-control:focus { box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+    .section-title { font-weight: 600; font-size: 1.2rem; color: #0d6efd; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card shadow-lg p-4"><br>
+    <h2 class="text-center mb-4">Product Details</h2><br>
+    <form action="/addproduct" method="POST">
+
+      
+      <div class="section-title">Product Details</div>
+      <div class="mb-3">
+        <label class="form-label"><i class="fa-solid fa-tag me-2"></i>Product Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter product name" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><i class="fa-solid fa-list-ul me-2"></i>Category</label>
+        <select class="form-select" name="category" required>
+          <option value="">Select category</option>
+          <option value="buds">Buds</option>
+          <option value="headphones">Headphones</option>
+          <option value="smartwatch">Smartwatch</option>
+          <option value="smartwatch">Speaker</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><i class="fa-solid fa-building me-2"></i>Brand</label>
+        <input type="text" class="form-control" name="brand" placeholder="Enter brand" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><i class="fa-solid fa-align-left me-2"></i>Description</label>
+        <textarea class="form-control" name="desc" rows="3" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label"><i class="fa-solid fa-dollar-sign me-2"></i>Price</label>
+          <input type="number" step="0.01" class="form-control" name="price" placeholder="Enter price" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label"><i class="fa-solid fa-boxes-stacked me-2"></i>Stock</label>
+          <input type="number" class="form-control" name="stock" placeholder="Available stock" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><i class="fa-solid fa-barcode me-2"></i>SKU</label>
+        <input type="text" class="form-control" name="sku" placeholder="Enter SKU" required>
+      </div>
+      <br><br>
+    
+      <div class="section-title">Product Images</div>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <input type="file" class="form-control" name="img1" placeholder="Image URL 1">
+        </div>
+        <div class="col-md-4">
+          <input type="file" class="form-control" name="img2" placeholder="Image URL 2">
+        </div>
+        <div class="col-md-4">
+          <input type="file" class="form-control" name="img3" placeholder="Image URL 3">
+        </div>
+      </div>
+        <br><br>
+      
+      <div class="section-title">Tags</div>
+      <div class="row mb-4">
+        <div class="col-md-2"><input type="text" class="form-control" name="tag1" placeholder="Tag 1"></div>
+        <div class="col-md-2"><input type="text" class="form-control" name="tag2" placeholder="Tag 2"></div>
+        <div class="col-md-2"><input type="text" class="form-control" name="tag3" placeholder="Tag 3"></div>
+        <div class="col-md-2"><input type="text" class="form-control" name="tag4" placeholder="Tag 4"></div>
+        <div class="col-md-2"><input type="text" class="form-control" name="tag5" placeholder="Tag 5"></div>
+      </div>
+      <br><br>
+    <br><br>
+      <div class="addprodbtn text-center">
+        <button type="submit" class="btn btn-primary btn-lg" style="padding: 10px 50px;"><i class="fa-solid fa-floppy-disk me-2"></i>Add Product</button>
+      </div>
+      <br><br>
+    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="js/style.js"></script>
+</body>
+</html>

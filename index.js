@@ -2,8 +2,10 @@ const express = require('express');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const User = require('./model/user.js');
+const Product = require('./model/product.js');
+const Rating = require('./model/rating.js');
 const flash = require('connect-flash');
-
+const bodyParser = require('body-parser');
 
 
 const app = express();
@@ -141,9 +143,10 @@ app.get("/admindashboard", (req,res) => {
     const user = req.session.user;
     res.render("admindashboard.ejs", { user : user});
 });
-app.get('/adminproduct', (req,res) => {
+app.get('/adminproduct', async (req,res) => {
     const user = req.session.user;
-    res.render("adminproduct.ejs", { user : user});
+    const allproduct = await Product.find();
+    res.render("adminproduct.ejs", { user : user, allproduct : allproduct });
 });
 app.get('/adminorder', (req,res) => {
     const user = req.session.user;
@@ -152,4 +155,35 @@ app.get('/adminorder', (req,res) => {
 app.get('/admincustomer', (req,res) => {
     const user = req.session.user;
     res.render("admincustomer.ejs", { user : user});
+});
+
+
+
+app.get('/addproduct', async (req,res) => {
+    const user = req.session.user;
+    res.render("addproduct.ejs", { user : user});
+});
+app.post('/addproduct', async (req,res) => {
+    const {
+        name, category, brand, desc, price, stock, sku,
+        'img1': img1, 'img2': img2, 'img3': img3,
+        'tag1': tag1, 'tag2': tag2, 'tag3': tag3, 'tag4': tag4, 'tag5': tag5
+      } = req.body;
+      const newProduct = new Product({
+        name,
+        category,
+        brand,
+        desc,
+        price: parseFloat(price),
+        stock: parseInt(stock),
+        sku,
+        image: { img1 :"", img2 :"", img3 :"" },
+        tags: { tag1, tag2, tag3, tag4, tag5 }
+      });
+
+      await newProduct.save().then((mail) => {
+        console.log(mail);
+      });
+
+      res.send(newProduct);
 });

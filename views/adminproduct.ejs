@@ -55,8 +55,55 @@
                 <div class="dashboard_main">
                     <h2>Manage Product</h2>
                     <br>
+                    <div class="addlistingbtn">
+                        <a href="/addproduct">
+                            <button class="btn-primary" style="color: aliceblue; border-radius: 10px;">Add New Product</button>
+                        </a>
+                    </div>
+                    <br><br>
+                    <h3>Products</h3>
                     <br>
-                    
+                    <div class="productlistmain">
+                        <div class="row">
+                            <% for(let product of allproduct) { %>
+                            <div class="prodcard col-lg-3 col-md-4 col-sm-6">
+                                <div class="productlist">
+                                    <div class="prodimg">
+                                        <img src="https://media.istockphoto.com/id/1319913192/vector/free-sample-not-for-sale-vector-icon.jpg?s=612x612&w=0&k=20&c=84-QZJc3O84wfTL4Y06jRS7YAaYbMjM8Buim98qnKyo=" alt="">
+                                    </div>
+                                    <div class="productdetail">
+                                        <div class="productname">
+                                            <h5><%= product.name %></h5>
+                                        </div>
+                                        <div style="display: flex;">
+                                            <p style="font-weight: 500;">SKU : &nbsp;</p><p>product sku id</p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div style="display: flex;">
+                                                    <p style="font-weight: 500;">Price : &nbsp; €</p><p>20.00</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div style="display: flex;">
+                                                    <p style="font-weight: 500;">Stock : &nbsp;</p><p>50</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                       
+                                </div>
+                            
+                            </div>
+                            <% } %>
+                            
+                            
+
+
+
+                        </div>
+                        
+                          
+                    </div>
                 </div>
             </div>
         </div>

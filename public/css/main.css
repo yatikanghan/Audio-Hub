@@ -264,3 +264,38 @@ footer {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+.prodcard{
+    padding: 10px;
+}
+.productlist{
+    background-color: #edf1f5;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 8px;
+}
+.prodimg img{
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 0;
+}
+.productdetail{
+    margin: 15px 10px;
+}
+.productdetail p{
+    margin: 0 0 5px 0;
+}
+.editproductbtn{
+    text-align: center;
+    margin: 20px 0;
+}
+.editproductbtn a button{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--primary);
+    border-radius: 10px;
+    width: 80%;
+    padding: 10px;
+    border: 0;
+}

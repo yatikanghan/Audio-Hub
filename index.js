@@ -8,7 +8,8 @@ const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 
 const cloudinary = require('cloudinary').v2;
-
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 
 const app = express();
@@ -177,30 +178,101 @@ app.get('/addproduct', async (req,res) => {
     const user = req.session.user;
     res.render("addproduct.ejs", { user : user});
 });
-app.post('/addproduct', async (req,res) => {
-    const {
-        name, category, brand, desc, price, stock, sku,
-        'img1': img1, 'img2': img2, 'img3': img3,
-        'tag1': tag1, 'tag2': tag2, 'tag3': tag3, 'tag4': tag4, 'tag5': tag5
-      } = req.body;
-      const newProduct = new Product({
-        name,
-        category,
-        brand,
-        desc,
-        price: parseFloat(price),
-        stock: parseInt(stock),
-        sku,
-        image: { img1 :"", img2 :"", img3 :"" },
-        tags: { tag1, tag2, tag3, tag4, tag5 }
-      });
+// app.post('/addproduct', upload.array('images', 3), async (req,res) => {
+//     const {
+//         name, category, brand, desc, price, stock, sku,
+//         'img1': img1, 'img2': img2, 'img3': img3,
+//         'tag1': tag1, 'tag2': tag2, 'tag3': tag3, 'tag4': tag4, 'tag5': tag5
+//     } = req.body;
 
-      await newProduct.save().then((mail) => {
-        console.log(mail);
-      });
+//     if (!req.files || req.files.length !== 3) {
+//         return res.status(400).json({ message: 'Please upload 3 images' });
+//     }
+//     const uploadedImages = [];
+//     for (const file of req.files) {
+//         const result = await cloudinary.uploader.upload_stream({ resource_type: 'image' }, (error, result) => {
+//         if (error) throw error;
+//         return result;
+//     });
 
-      res.send(newProduct);
+//     uploadedImages.push(result.secure_url);
+//     }
+//     const urls = await Promise.all(
+//         req.files.map(file => 
+//           cloudinary.uploader.upload(file.buffer, { folder: 'products' })
+//         )
+//       );
+  
+//       const imageUrls = urls.map(u => u.secure_url);
+
+
+//     const newProduct = new Product({
+//         name,
+//         category,
+//         brand,
+//         desc,
+//         price: parseFloat(price),
+//         stock: parseInt(stock),
+//         sku,
+//         image: { img1 :"", img2 :"", img3 :"" },
+//         tags: { tag1, tag2, tag3, tag4, tag5 }
+//     });
+
+//     await newProduct.save().then((mail) => {
+//         console.log(mail);
+//     });
+
+//     res.send(newProduct);
+// });
+
+app.post('/addproduct', upload.fields([
+    { name: 'img1', maxCount: 1 },
+    { name: 'img2', maxCount: 1 },
+    { name: 'img3', maxCount: 1 }
+  ]), async (req, res) => {
+    try {
+        const {
+            name, category, brand, desc, price, stock, sku,
+            tag1, tag2, tag3, tag4, tag5
+        } = req.body;
+
+        if (!req.files || !req.files.img1 || !req.files.img2 || !req.files.img3) {
+            return res.status(400).json({ message: 'Please upload all 3 images' });
+          }
+      
+          // Upload each image to Cloudinary
+          const uploadedImg1 = await cloudinary.uploader.upload(req.files.img1[0].path, { folder: 'products' });
+          const uploadedImg2 = await cloudinary.uploader.upload(req.files.img2[0].path, { folder: 'products' });
+          const uploadedImg3 = await cloudinary.uploader.upload(req.files.img3[0].path, { folder: 'products' });
+      
+          // Save product in database
+          const newProduct = new Product({
+            name,
+            category,
+            brand,
+            desc,
+            price: parseFloat(price),
+            stock: parseInt(stock),
+            sku,
+            image: { 
+              img1: uploadedImg1.secure_url, 
+              img2: uploadedImg2.secure_url, 
+              img3: uploadedImg3.secure_url 
+            },
+            tags: { tag1, tag2, tag3, tag4, tag5 }
+          });
+
+        await newProduct.save();
+
+        res.redirect('/adminproduct');
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
+    }
 });
+
+
+
 app.get("/adminproductedit/:id", async (req,res) => {
     const pid = req.params.id;
     const user = req.session.user;

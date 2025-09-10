@@ -7,6 +7,9 @@ const Rating = require('./model/rating.js');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 
+const cloudinary = require('cloudinary').v2;
+
+
 
 const app = express();
 
@@ -32,6 +35,17 @@ async function dbconnect() {
 
 }
 dbconnect();
+
+
+// image config
+
+cloudinary.config({
+    cloud_name: 'dunqhg4uq',
+    api_key: '495823826719684',
+    api_secret: 'T5BRSKgc5AryRjmYgJvqNFBIyV0'
+  });
+  
+  module.exports = cloudinary;
 
 
 app.use((req, res, next) => {
@@ -186,4 +200,11 @@ app.post('/addproduct', async (req,res) => {
       });
 
       res.send(newProduct);
+});
+app.get("/adminproductedit/:id", async (req,res) => {
+    const pid = req.params.id;
+    const user = req.session.user;
+    const product = await Product.findById(pid);
+    console.log(product);
+    res.render("adminproductedit.ejs", { user : user, product : product});
 });

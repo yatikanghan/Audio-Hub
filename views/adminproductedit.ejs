@@ -60,7 +60,7 @@
                     <div class="container my-5">
                         <div class="row" style="display: flex; justify-content: center;">
                           <!-- Product Images -->
-                          <div class="col-md-8 offset-lg-2 offset-md-1" style="justify-content: center;">
+                          <div class="col-md-8" style="justify-content: center;">
                             <div class="row">
                                 
                                 <div class="col-lg-3">
@@ -84,9 +84,9 @@
                           </div>
                           
 
-                          <div class="col-md-8 offset-lg-2 offset-md-1">
+                          <div class="col-md-8">
                             <h2>Edit Product Details</h2>
-                            <form action="/adminproduct/update/<%= product._id %>" method="POST" enctype="multipart/form-data">
+                            <form action="/adminproductedit/<%= product._id %>" method="POST">
                                 <!-- Product Name -->
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Product Name</label>

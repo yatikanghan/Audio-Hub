@@ -133,22 +133,38 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     const user = req.session.user;
-    res.render('about.ejs');
+    res.render('about.ejs', { user : user});
 });
 
 app.get('/contact', (req, res) => {
     const user = req.session.user;
-    res.render('contact.ejs');
+    res.render('contact.ejs', { user : user});
 });
 
-app.get('/shop', (req, res) => {
+app.get('/shop', async (req, res) => {
     const user = req.session.user;
-    res.render('shop.ejs');
+    const allproduct = await Product.find();
+    res.render('shop.ejs', { user : user, allproduct : allproduct});
 });
+
+
+
+
+
+
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
 });
+
+
+
+
+
+
+
+
+
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------   Admin Panel   ------------------------------------------------------------------
@@ -279,4 +295,47 @@ app.get("/adminproductedit/:id", async (req,res) => {
     const product = await Product.findById(pid);
     console.log(product);
     res.render("adminproductedit.ejs", { user : user, product : product});
+});
+
+app.post("/adminproductedit/:id", async (req,res) => {
+    const {
+        name, category, brand, desc, price, stock, sku,
+        tag1, tag2, tag3, tag4, tag5
+    } = req.body;
+
+    const pid = req.params.id;
+    const user = req.session.user;
+    const product = await Product.findById(pid);
+
+    // product.name = name;
+    // product.category = category;
+    // product.brand = brand;
+    // product.desc = desc;
+    // product.price = price;
+    // product.stock = stock;
+    // product.sku = sku;
+    // product.tags.tag1 = tag1;
+    // product.tags.tag2 = tag2;
+    // product.tags.tag3 = tag3;
+    // product.tags.tag4 = tag4;
+    // product.tags.tag5 = tag5;
+
+    // await product.findByIdAndUpdate(product._id);
+
+    await Product.findByIdAndUpdate(
+        req.params.id,
+        {
+          name,
+          category,
+          brand,
+          desc,
+          price,
+          stock,
+          sku,
+          tags: { tag1, tag2, tag3, tag4, tag5 } // nested tags object
+        },
+        { new: true }
+      );
+        
+    res.redirect("/adminproduct");
 });

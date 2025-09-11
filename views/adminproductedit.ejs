@@ -100,10 +100,26 @@
                                 </div>
                         
                                 <!-- Category -->
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="category" class="form-label">Category</label>
                                     <input type="text" class="form-control" id="category" name="category" value="<%= product.category %>" required>
-                                </div>
+                                </div> -->
+                                <div class="mb-3">
+                                    <label class="form-label"><i class="fa-solid fa-list-ul me-2"></i>Category</label>
+                                    <select class="form-select" name="category" id="category" required>
+                                      <option value="">Select category</option>
+
+                                        <option value="buds" <%= product.category === 'buds' ? 'selected' : '' %>>Buds</option>
+                                        <option value="headphones" <%= product.category === 'headphones' ? 'selected' : '' %>>Headphones</option>
+                                        <option value="smartwatch" <%= product.category === 'smartwatch' ? 'selected' : '' %>>Smartwatch</option>
+                                        <option value="Speaker" <%= product.category === 'Speaker' ? 'selected' : '' %>>Speaker</option>
+
+                                      <!-- <option value="buds">Buds</option>
+                                      <option value="headphones">Headphones</option>
+                                      <option value="smartwatch">Smartwatch</option>
+                                      <option value="Speaker">Speaker</option> -->
+                                    </select>
+                                  </div>
                         
                                 <!-- Price -->
                                 <div class="mb-3">

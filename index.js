@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const User = require('./model/user.js');
 const Product = require('./model/product.js');
 const Rating = require('./model/rating.js');
+const Order = require('./model/order.js');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 
@@ -125,9 +126,10 @@ app.use((req,res,next)=>{
     }
 });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     const user = req.session.user;
-    res.render('index.ejs', { user : user});
+    const allproduct = await Product.find().limit(4);
+    res.render('index.ejs', { user : user, allproducts : allproduct});
 });
 
 
@@ -148,7 +150,72 @@ app.get('/shop', async (req, res) => {
 });
 
 
+app.get("/productdetail/:id", async (req,res) => {
+    const pid = req.params.id;
+    const user = req.session.user;
+    const product = await Product.findById(pid);
+    res.render('productdetail.ejs', { user : user, product : product});
+});
 
+app.get('/product/category/:category', async (req,res) => {
+    const category = req.params.category;
+    const user = req.session.user;
+    if(category == "headphones"){
+        const allproducts = await Product.find({ category: "headphones" });
+        res.render('prodcategory.ejs', { user : user, allproducts : allproducts, category : "headphones"});
+    }
+    else if(category == "earbuds"){
+        const allproducts = await Product.find({ category: "buds" });
+        res.render('prodcategory.ejs', { user : user, allproducts : allproducts, category : "earbuds"});
+    }
+    else if(category == "speakers"){
+        const allproducts = await Product.find({ category: "Speaker" });
+        res.render('prodcategory.ejs', { user : user, allproducts : allproducts, category : "speakers"});
+    }
+    else if(category == "smartwatches"){
+        const allproducts = await Product.find({ category: "smartwatch" });
+        res.render('prodcategory.ejs', { user : user, allproducts : allproducts, category : "smartwatches"});
+    }
+    // res.send(category);
+});
+
+app.get('/order/:productid', async (req,res) => {
+    const pid = req.params.productid;
+    const user = req.session.user;
+    const myproduct = await Product.findById(pid);
+    res.render('ordernow.ejs', { user : user, product : myproduct });
+});
+
+app.post('/order/Checkout', async (req,res) => {
+    const user = req.session.user;
+    const productId = req.body.productId;
+    const qty = req.body.qty;
+
+    const address = req.body.address;
+    const city = req.body.city;
+    const postcode = req.body.postcode;
+    const country = req.body.country;
+
+    const product = await Product.findById(productId);
+    const totalamount = parseInt(product.price) * parseInt(qty);
+    const currentdate = new Date().toLocaleString();
+    const myorder = new Order({
+        userId: user._id,
+       productId: productId,
+       qty: qty,
+       totalamount: totalamount,
+       orderstatus: "Pending",
+       reviewstatus: "Pending",
+       address: address,
+       city: city,
+       postcode: postcode,
+       country: country,
+       createdAt: currentdate
+    });
+    console.log(myorder);
+
+    res.render('checkout.ejs', { user : user, myorder : myorder, product : product});
+});
 
 
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioHub - Premium Audio Equipment</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <%- include('header.ejs') %>
+    
+    <div class="container">
+        <div class="row">
+            <div class="ordertitle text-center" style="margin-top: 70px; margin-bottom: 100px;">
+                <div class="form-header">
+                    <h2><i class="fas fa-shopping-cart me-2"></i> Ckeckout Now</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="orderform">                
+                    <div class="col-lg-6 col-md-12 col-sm-12 offset-lg-3 offset-md-0 offset-sm-0">
+                        
+                        <div class="form-section">
+                            <h4 class="section-title"><i class="fas fa-box me-2"></i>Order Information</h4>
+                            <input type="hidden" name="productId" value="<%= product._id %>">
+                            <div class="product-info">
+                                <img src="<%= product.image.img1 %>" alt="Product Image" class="product-image" style="object-fit: contain;">
+                                        
+                                <div class="flex-grow-1">
+                                    <h5><%= product.name %></h5>
+                                    <p class="text-muted mb-0">SKU: <%= product.sku %></p>
+                                    <p class="mb-0"><%= product.price %>.00 €</p>
+                                </div>
+                            </div>
+            
+
+                            <div class="row">
+                                <div class="row mb-3">
+                                    <div class="col-lg-12 col-md-12 mb-2">
+                                        <p><strong>Qty :</strong> <%= myorder.qty %></p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 mb-2">
+                                        <p><strong>Address:</strong> <%= myorder.address %></p>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <p><strong>City:</strong> <%= myorder.city %></p>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <p><strong>Postal Code:</strong> <%= myorder.postcode %></p>
+                                    </div>
+                                    <div class="col-md-12 mb-2">
+                                        <p><strong>Country:</strong> <%= myorder.country %></p>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <div class="totaldisp">
+                                    <h4>Total Amount : &nbsp;&nbsp;<strong><%= myorder.totalamount %>.00 € </strong></h4>
+                                </div>
+                                <br><br>
+                                <div style="display: flex; flex-direction: column-reverse; margin-top: 50px; margin-bottom: 100px;">
+                                    <button class="btncheckout" style="background-color: rgb(225, 146, 0);">Pay Now</button>
+                                </div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <br><br><br><br>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="/js/style.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

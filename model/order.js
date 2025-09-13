@@ -25,6 +25,10 @@ const orderSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    paymentstatus: {
+      type: String,
+      required: true
+    },
     reviewstatus: {
         type: String,
         required: true
@@ -46,8 +50,7 @@ const orderSchema = new mongoose.Schema({
         required: true
     },
     createdAt: {
-        type: Date,
-        default: Date.now
+        type: String
     }
 
   });

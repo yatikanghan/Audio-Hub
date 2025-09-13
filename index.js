@@ -23,6 +23,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
@@ -201,24 +202,30 @@ app.post('/order/Checkout', async (req,res) => {
     const currentdate = new Date().toLocaleString();
     const myorder = new Order({
         userId: user._id,
-       productId: productId,
-       qty: qty,
-       totalamount: totalamount,
-       orderstatus: "Pending",
-       reviewstatus: "Pending",
-       address: address,
-       city: city,
-       postcode: postcode,
-       country: country,
-       createdAt: currentdate
+        productId: productId,
+        qty: qty,
+        totalamount: totalamount,
+        orderstatus: "Pending",
+        paymentstatus: "Paid",
+        reviewstatus: "Pending",
+        address: address,
+        city: city,
+        postcode: postcode,
+        country: country,
+        createdAt: currentdate
     });
-    console.log(myorder);
 
-    res.render('checkout.ejs', { user : user, myorder : myorder, product : product});
+    await myorder.save();
+
+
+    res.redirect("/");
 });
 
 
-
+app.get('/myorder', (req, res) => {
+    const user = req.session.user;
+    res.render('myorder.ejs', { user : user});
+});
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');

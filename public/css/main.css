@@ -495,3 +495,37 @@ footer {
 .totaldisp h4{
     color: rgb(169, 0, 0);
 }
+
+
+.payment-form {
+    max-width: 450px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  .payment-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+  }
+  .btn-pay {
+    width: 100%;
+    background: #0d6efd;
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+  }
+  .btn-pay:hover {
+    background: #0b5ed7;
+  }
+  .qtyin{
+    background: none;
+    border: 0;
+  }

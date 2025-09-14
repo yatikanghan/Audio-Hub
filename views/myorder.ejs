@@ -14,29 +14,42 @@
 <body>
     <%- include('header.ejs') %>
     
-    <div class="mainshopsec container-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <div class="shopmain text-center" style="color: #000;">
-                        <h1 style="font-weight: 900;">Experience Our Amazing Sound Collection</h1>
-                        <br><p>“Discover the latest in audio and wearable technology! From premium earbuds and headphones to smartwatches and powerful speakers, our curated collection offers top-quality products designed to elevate your lifestyle. Shop now and experience superior sound, cutting-edge features, and stylish designs – all in one place.”</p>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <h4>Your Orders</h4>
+            <br><br>
+            
+            <% for(let order of myallorder) { %>
+            <div class="ordercard card container">
+                <a href="/orderview/<%= order._id %>"  style="text-decoration: none; color: black;">
+                    <div class="row">
+                        <div class="ocardimg col-lg-3 col-md-4 col-sm-12">
+                            <img src="<%= order.productId.image.img1 %>" alt="" >
+                        </div>
+                        <div class="col-lg-9 col-md-8 col-sm-12" style="padding: 10px 30px;">
+                            <h4 style="width: 100%;"><%= order.productId.name %></h4>
+                            <h6 class="mt-1">Brand : &nbsp; <%= order.productId.brand %></h6>
+                            <h6 class="mt-1">Quantity : &nbsp; <%= order.qty %></h6>
+                            <h6 class="mt-1">Price : &nbsp; <%= order.productId.price %>.00 €</h6>
+                            <h6 class="mt-1">Total Amount : &nbsp; <%= order.totalamount %>.00 €</h6>
+                            
+                            
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <div class="shopmain text-center">
-                    </div>
-                </div>
-                
+                </a>
             </div>
+            <% } %>
+
         </div>
     </div>
+    
 
     
 
 
 
-
+    <br><br><br><br>
     <%- include('footer.ejs') %>
 
 

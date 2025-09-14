@@ -222,10 +222,23 @@ app.post('/order/Checkout', async (req,res) => {
 });
 
 
-app.get('/myorder', (req, res) => {
+app.get('/myorder', async (req, res) => {
     const user = req.session.user;
-    res.render('myorder.ejs', { user : user});
+    const myallorder = await Order.find({userId : user._id}).populate('productId');
+    res.render('myorder.ejs', { user : user, myallorder: myallorder});
 });
+
+app.get("/orderview/:orderid", async (req,res) => {
+    const oid = req.params.orderid;
+    const user = req.session.user;
+
+    const thisorder = await Order.findById(oid).populate('productId');
+
+    res.render("orderdetail.ejs", { user : user, thisorder : thisorder});
+    
+});
+
+
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
@@ -412,4 +425,39 @@ app.post("/adminproductedit/:id", async (req,res) => {
       );
         
     res.redirect("/adminproduct");
+});
+
+app.get('/admin/order', async (req,res) => {
+    const user = req.session.user;
+    const allorder = await Order.find().populate('productId');
+    res.render("adminorderlist.ejs", { user : user, allorder: allorder});
+});
+
+app.get('/admin/order/:status', async (req,res) => {
+    const user = req.session.user;
+    const status = req.session.status;
+    const allorder = await Order.find().populate('productId');
+    res.render("adminorderlist.ejs", { user : user, allorder: allorder});
+});
+
+app.get("/adminorder/:orderid", async (req,res) => {
+    const oid = req.params.orderid;
+    const user = req.session.user;
+
+    const thisorder = await Order.findById(oid).populate('productId');
+
+    res.render("adminorderdetail.ejs", { user : user, thisorder : thisorder});
+    
+});
+
+app.post("/ordership", async (req,res) => {
+    const thisorder = req.body.thisorder;
+    const trackingid = req.body.trackingid;
+
+    let myorder = await Order.findById(thisorder);
+    myorder.trackingid = trackingid;
+    await Order.findByIdAndUpdate(myorder._id, { trackingId : trackingid ,  orderstatus : "Shipped"});
+
+    res.redirect('/admin/order')
+
 });

@@ -101,6 +101,42 @@
                                 <a href="/productdetail/<%= thisorder.productId._id %>" style="text-decoration: none; margin-top: 50px; margin-bottom: 50px;">
                                     <button class="viewprodbtn">View Product</button>
                                 </a>
+                                <br><br><br><br>
+                                <% if(thisorder.orderstatus == "Delivered" && thisorder.reviewstatus == "Pending") { %>
+                                    <br><br><br>
+                                    <h4>Product Review : </h4>
+                                    <br><br>
+                                    <form action="/submitreveiw" method="post" id="reviewForm" style="text-align: left; margin-left: 10px;">
+                                        <input type="hidden" name="productId" value="<%= thisorder.productId._id %>">
+                                        <input type="hidden" name="orderId" value="<%= thisorder._id %>">
+                                        <input type="hidden" name="userId" value="<%= user._id %>">
+                            
+                                        <!-- Rating -->
+                                        <div class="mb-3">
+                                          <label class="form-label">Rating</label>
+                                          <select name="rating" class="form-select" required>
+                                            <option value="">Select Rating</option>
+                                            <option value="1">1 - Poor</option>
+                                            <option value="2">2 - Fair</option>
+                                            <option value="3">3 - Good</option>
+                                            <option value="4">4 - Very Good</option>
+                                            <option value="5">5 - Excellent</option>
+                                          </select>
+                                        </div>
+                            
+                                        <!-- Review Text -->
+                                        <div class="mb-3">
+                                          <label class="form-label">Review</label>
+                                          <textarea name="review" class="form-control" rows="4" placeholder="Write your review here..."></textarea>
+                                        </div>
+                            
+                                        <div class="d-grid">
+                                          <button type="submit" class="btn btn-warning text-dark">
+                                            Submit Review
+                                          </button>
+                                        </div>
+                                      </form>
+                                <% } %>
                             </div>
                         </div>
                     

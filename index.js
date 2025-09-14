@@ -154,7 +154,9 @@ app.get('/shop', async (req, res) => {
 app.get("/productdetail/:id", async (req,res) => {
     const pid = req.params.id;
     const user = req.session.user;
-    const product = await Product.findById(pid);
+    const product = await Product.findById(pid).populate({
+        path: "ratings.userId"});
+
     res.render('productdetail.ejs', { user : user, product : product});
 });
 
@@ -214,6 +216,8 @@ app.post('/order/Checkout', async (req,res) => {
         country: country,
         createdAt: currentdate
     });
+    let currentqty = parseInt(product.stock) - parseInt(qty);
+    await Product.findByIdAndUpdate(productId, { stock : currentqty});
 
     await myorder.save();
 
@@ -239,6 +243,19 @@ app.get("/orderview/:orderid", async (req,res) => {
 });
 
 
+app.post('/submitreveiw', async (req,res) => {
+    const user = req.session.user;
+    const { productId, orderId, userId, rating, review } = req.body;
+    let myproduct = await Product.findById(productId);
+    const newRating = new Rating({ productId, orderId, userId, rating, review });
+    await Order.findByIdAndUpdate(orderId, { reviewstatus : "Reviewed"});
+    myproduct.ratings.push(newRating);
+    await newRating.save();
+    await myproduct.save();
+    res.redirect("/");
+});
+
+
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
@@ -259,27 +276,79 @@ app.get('/logout', (req, res) => {
 
 app.get("/admindashboard", async (req,res) => {
     const user = req.session.user;
-    
-    
-
-
-    res.render("admindashboard.ejs", { user : user});
+    const userCount = await User.countDocuments();
+    const pendingOrdersCount = await Order.countDocuments({ orderstatus: "Pending" });
+    const Deliveredorder = await Order.countDocuments({ orderstatus: "Delivered" });
+    const totalSalesAgg = await Order.aggregate([
+        { $group: { _id: null, total: { $sum: "$totalamount" } } }
+      ]);
+      
+      const totalSales = totalSalesAgg[0]?.total || 0;
+    res.render("admindashboard.ejs", { user : user, totaluser: userCount, pendingordercount: pendingOrdersCount, Deliveredorder: Deliveredorder, totalSales:totalSales});
 });
 app.get('/adminproduct', async (req,res) => {
     const user = req.session.user;
     const allproduct = await Product.find();
     res.render("adminproduct.ejs", { user : user, allproduct : allproduct });
 });
-app.get('/adminorder', (req,res) => {
+app.get('/adminorder', async (req,res) => {
     const user = req.session.user;
-    res.render("adminorder.ejs", { user : user});
+    
+    const Pendingorder = await Order.countDocuments({ orderstatus: "Pending" });
+    
+    const Shippedorder = await Order.countDocuments({ orderstatus: "Shipped" });
+    
+    const Deliveredorder = await Order.countDocuments({ orderstatus: "Delivered" });
+    res.render("adminorder.ejs", { user : user, pendingorder: Pendingorder, shippedorder: Shippedorder, deliveredorder: Deliveredorder });
 });
-app.get('/admincustomer', (req,res) => {
+app.get('/admincustomer', async (req,res) => {
     const user = req.session.user;
-    res.render("admincustomer.ejs", { user : user});
+    const alluser = await User.find();
+    res.render("admincustomer.ejs", { user : user, alluser: alluser});
+});
+
+app.get("/users/:id", async (req, res) => {
+    const user = req.session.user;
+    if(user.role=="Admin"){
+        const thisuser = await User.findById(req.params.id);
+
+        if (!thisuser) {
+        return res.status(404).send("User not found");
+        }
+
+        res.render("adminuserprofile.ejs", { thisuser: thisuser });
+    }
+});
+
+app.post("/usersave/:id", async (req, res) => {
+    
+    const userId = req.params.id;
+    const { name, mobile, address, city, postalcode, country } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    {
+        name,
+        mobile,
+        address,
+        city,
+        postalcode,
+        country
+    },
+    { new: true }
+    );
+
+    if (!updatedUser) {
+    return res.status(404).send("User not found");
+    }
+
+    // Redirect back to user profile or users list
+    res.redirect("/admincustomer");
 });
 
 
+
+  
 
 app.get('/addproduct', async (req,res) => {
     const user = req.session.user;

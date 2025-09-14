@@ -50,12 +50,15 @@
                                 <h6><strong>Category : </strong> <%= product.category %></h6>
                                 <br>
                                 <h3 style="color: green;"><strong><%= product.price %> .00 €</strong></h3>
-                                
+                                <% if(parseInt(product.stock) > 1) { %>
                                 <a href="/order/<%= product._id %>">
                                     <div class="buybtndetail">
                                         <button>Buy Now</button>
                                     </div>
                                 </a>
+                                <% } else { %>
+                                    <p>OUT OF STOCK </p>
+                                <% } %>
                                 <br>
                                 <div class="supplierinfo" style="margin-top: 30px;">
                                     <h6>Supplier Info : </h6>
@@ -93,37 +96,20 @@
                                     <div class="card mb-3">
                                         <div class="card-body">
                                             <div>
-                                                <h5>Customer Name</h5>
-                                                <p>11 September, 2025</p>
+                                                <h5><%= review.userId.name %></h5>
+                                                <p><%= review.createdAt.toDateString() %></p>
                                             </div>
-                                            <div><span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
+                                            <div>
+                                                <h6 style="background-color: #e2e4f7; padding: 10px; border-radius: 30px;"><span class="fa fa-star checked"></span> <%= review.rating %>.0</h6>
                                             </div>
-                                            <p><strong>Description : </strong> <br>This is product review description</p>
+                                            <p><strong>Description : </strong> <br><%= review.review %></p>
                                         </div>
                                     </div>
                                 <% } %>
                             <% } %>
                             <!-- ----- -->
 
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <div>
-                                        <h5>Customer Name</h5>
-                                        <p>11 September, 2025</p>
-                                    </div>
-                                    <div><span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </div>
-                                    <p><strong>Description : </strong> <br>This is product review description</p>
-                                </div>
-                            </div>
+                            
                             
                             <!-- ------------ -->
                             <br><br><br><br>

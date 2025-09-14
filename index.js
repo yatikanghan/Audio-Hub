@@ -257,8 +257,12 @@ app.get('/logout', (req, res) => {
 // ------------------------------------------------   Admin Panel   ------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
-app.get("/admindashboard", (req,res) => {
+app.get("/admindashboard", async (req,res) => {
     const user = req.session.user;
+    
+    
+
+
     res.render("admindashboard.ejs", { user : user});
 });
 app.get('/adminproduct', async (req,res) => {
@@ -430,14 +434,26 @@ app.post("/adminproductedit/:id", async (req,res) => {
 app.get('/admin/order', async (req,res) => {
     const user = req.session.user;
     const allorder = await Order.find().populate('productId');
-    res.render("adminorderlist.ejs", { user : user, allorder: allorder});
+    let ordertype="Manage Orders";
+    res.render("adminorderlist.ejs", { user : user, allorder: allorder, ordertype:ordertype});
 });
 
 app.get('/admin/order/:status', async (req,res) => {
     const user = req.session.user;
-    const status = req.session.status;
-    const allorder = await Order.find().populate('productId');
-    res.render("adminorderlist.ejs", { user : user, allorder: allorder});
+    const status = req.params.status;
+    let ordertype = "";
+    if(status=="Pending"){
+        ordertype="Pending Orders";
+    }else if(status=="Shipped"){
+        ordertype="Shipped Orders";
+    }else if(status=="Delivered"){
+        ordertype="Complated Orders";
+    }
+    else{
+        ordertype="Manage Orders";
+    }
+    const allorder = await Order.find({orderstatus : status}).populate('productId');
+    res.render("adminorderlist.ejs", { user : user, allorder: allorder, ordertype: ordertype});
 });
 
 app.get("/adminorder/:orderid", async (req,res) => {
@@ -454,9 +470,22 @@ app.post("/ordership", async (req,res) => {
     const thisorder = req.body.thisorder;
     const trackingid = req.body.trackingid;
 
+    if(trackingid){
+        let myorder = await Order.findById(thisorder);
+        myorder.trackingid = trackingid;
+        await Order.findByIdAndUpdate(myorder._id, { trackingId : trackingid ,  orderstatus : "Shipped"});
+        res.redirect('/admin/order');
+    }
+    else{
+        throw error("transaction id not valid");
+    }
+
+});
+app.post("/orderdelivered", async (req,res) => {
+    
+    const thisorder = req.body.thisorder;
     let myorder = await Order.findById(thisorder);
-    myorder.trackingid = trackingid;
-    await Order.findByIdAndUpdate(myorder._id, { trackingId : trackingid ,  orderstatus : "Shipped"});
+    await Order.findByIdAndUpdate(myorder._id, { orderstatus : "Delivered"});
 
     res.redirect('/admin/order')
 

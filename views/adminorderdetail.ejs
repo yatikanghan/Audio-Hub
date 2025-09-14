@@ -122,6 +122,7 @@
                 <br><br>
             </div>
             <hr>
+            <% if(thisorder.orderstatus == "Pending") { %>
             <div class="changeorderstatus col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
                 <br>
                 <h5>Shipping Information</h5>
@@ -136,6 +137,17 @@
                     <br><br>
                 </form>
             </div>
+            <% } %>
+            <% if(thisorder.orderstatus == "Shipped") { %>
+                <div class="changeorderstatus text-center col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
+                    <form action="/orderdelivered" method="post">
+                        <input type="hidden" name="thisorder" value="<%= thisorder._id %>" id="order">
+                        <button type="submit" class="btn btn-success" style="color: #fff; padding: 10px 50px;">Order Delivered</button>
+                        
+                        <br><br>
+                    </form>
+                </div>
+                <% } %>
             
             
         </div>

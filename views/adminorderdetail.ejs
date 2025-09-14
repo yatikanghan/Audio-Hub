@@ -13,12 +13,54 @@
         td{
             padding-right: 10px;
         }
+        body{
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
-    <%- include('header.ejs') %>
+    <%- include('adminheader.ejs') %>
     
-    <br><br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="leftpanel col-lg-2 pt-2">
+                <a href="#" style="text-decoration: none;">
+                    <div class="leftcard">
+                        <p>Administration</p>
+                    </div>
+                </a>
+                <a href="/admindashboard" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="/images/dashboard.png" alt="">
+                        <p>Dashboard</p>
+                    </div>
+                </a>
+                <a href="/adminorder" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="/images/order.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Orders</p>
+                    </div>
+                </a>
+                <a href="/adminproduct" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="/images/product.png" alt="" style="height: 25px; width: 25px;">
+                        <p>Products</p>
+                    </div>
+                </a>
+                <a href="/admincustomer" style="text-decoration: none;">
+                    <div class="leftcardlink">
+                        <img src="/images/user.png" alt="">
+                        <p>Customers</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-lg-10">
+                
+
+
+                <br><br><br>
     <div class="container">
         <div class="row">
             <h3>Order Information</h3>
@@ -122,32 +164,34 @@
                 <br><br>
             </div>
             <hr>
+            
             <% if(thisorder.orderstatus == "Pending") { %>
-            <div class="changeorderstatus col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
-                <br>
-                <h5>Shipping Information</h5>
-                <form action="/ordership" method="post">
-                    <input type="hidden" name="thisorder" value="<%= thisorder._id %>" id="order">
-                    <label class="form-label" for="trackingid">Tracking ID :</label>
-                    <input type="text" class="form-control" placeholder="Tracking ID" name="trackingid" required>
+                <div class="changeorderstatus col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
                     <br>
-                    <div style="text-align: right;">
-                        <button type="submit" class="btn btn-success" style="color: #fff;">Order Shipped</button>
-                    </div>
-                    <br><br>
-                </form>
-            </div>
-            <% } %>
-            <% if(thisorder.orderstatus == "Shipped") { %>
-                <div class="changeorderstatus text-center col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
-                    <form action="/orderdelivered" method="post">
+                    <h5>Shipping Information</h5>
+                    <form action="/ordership" method="post">
                         <input type="hidden" name="thisorder" value="<%= thisorder._id %>" id="order">
-                        <button type="submit" class="btn btn-success" style="color: #fff; padding: 10px 50px;">Order Delivered</button>
-                        
+                        <label class="form-label" for="trackingid">Tracking ID :</label>
+                        <input type="text" class="form-control" placeholder="Tracking ID" name="trackingid" required>
+                        <br>
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn btn-success" style="color: #fff;">Order Shipped</button>
+                        </div>
                         <br><br>
                     </form>
                 </div>
                 <% } %>
+                <% if(thisorder.orderstatus == "Shipped") { %>
+                    <div class="changeorderstatus text-center col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 offset-sm-0">
+                        <form action="/orderdelivered" method="post">
+                            <input type="hidden" name="thisorder" value="<%= thisorder._id %>" id="order">
+                            <button type="submit" class="btn btn-success" style="color: #fff; padding: 10px 50px;">Order Delivered</button>
+                            
+                            <br><br>
+                        </form>
+                    </div>
+                <% } %>
+                
             
             
         </div>
@@ -155,8 +199,16 @@
 
 
 
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------- -->
+    
+
+
+
     <br><br><br><br>
-    <%- include('footer.ejs') %>
 
 
 

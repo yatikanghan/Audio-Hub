@@ -11,11 +11,11 @@ const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
-
+const dotenv = require("dotenv");
 
 const app = express();
 
-const port = 3000;
+const port = process.env.PORT|| 3000;
 
 
 app.set('view engine', 'ejs');

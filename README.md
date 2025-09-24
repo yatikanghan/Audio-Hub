@@ -60,7 +60,7 @@ Before running the system, ensure you have the following installed:
 
 
 4. **Build & Run the application** :
-```bash
+   ```bash
    node index.js
 
 

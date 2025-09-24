@@ -55,8 +55,8 @@ Before running the system, ensure you have the following installed:
     await mongoose.connect('mongodb://127.0.0.1/AudioHub'). then(()=>{
         console.log("Database connected");
     });
-  }
-  dbconnect();
+     }
+     dbconnect();
 
 
 4. **Build & Run the application** :

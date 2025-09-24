@@ -31,7 +31,7 @@ YOUTUBE LINK : [YOUTUBE]()
 Before running the system, ensure you have the following installed:
 
 - **Node.js**: Latest Version
-- **MongoDB DATABASE :**: Version 5.7 or higher
+- **MongoDB DATABASE :**: Latest Version
 
 ## Installation and Setup
 

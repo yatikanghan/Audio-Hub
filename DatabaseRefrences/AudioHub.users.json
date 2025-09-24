@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "68c082dd3d79424ecdc8d905"
+  },
+  "name": "Yatik Anghan",
+  "email": "yatikanghan01@gmail.com",
+  "password": "abcd123",
+  "mobile": "017663116950",
+  "role": "Admin",
+  "address": "Bornimer Str. 9",
+  "city": "Berlin",
+  "postalcode": "10711",
+  "country": "Germany",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c086d2ac1faf7137e9e083"
+  },
+  "name": "Kunj Kankotiya",
+  "email": "kunjkankotiya@gmail.com",
+  "password": "abcd123",
+  "mobile": "017663117236",
+  "role": "Customer",
+  "address": "",
+  "city": "",
+  "postalcode": "",
+  "country": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c5fec03940290dbc205d69"
+  },
+  "name": "Om Anghan",
+  "email": "omanghan@gmail.com",
+  "password": "abcd123",
+  "mobile": "01234785235",
+  "role": "Customer",
+  "address": "",
+  "city": "",
+  "postalcode": "",
+  "country": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c6ee61c7e99b9453d15b88"
+  },
+  "name": "Bansi Sonani",
+  "email": "bansisonani@gmail.com",
+  "password": "abcd123",
+  "mobile": "014563218541",
+  "role": "Customer",
+  "address": "",
+  "city": "",
+  "postalcode": "",
+  "country": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c6ee7cc7e99b9453d15b8b"
+  },
+  "name": "Mayank Dobariya",
+  "email": "mayankdobariya@gmail.com",
+  "password": "abcd123",
+  "mobile": "052398745632",
+  "role": "Customer",
+  "address": "",
+  "city": "",
+  "postalcode": "",
+  "country": "",
+  "__v": 0
+}]

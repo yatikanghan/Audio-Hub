@@ -1,0 +1,248 @@
+[{
+  "_id": {
+    "$oid": "68c20966c7de00351e846057"
+  },
+  "name": "Readmi Air Buds 6 Play",
+  "category": "buds",
+  "brand": "Readmi",
+  "desc": "Redmi Buds 6 Play\r\n\r\n36 hours of battery life: Long-lasting use with charging case, ideal for daily use and longer periods of use without constant charging.\r\n\r\n10mm dynamic driver: Delivers clear, balanced sound with solid bass, ideal for various music genres.\r\n\r\nAI Noise Cancellation on Calls: Reliable reduction of background noise for clearer and crisper phone calls.\r\n\r\nBluetooth 5.4 connection: Fast and stable connection with extended reception range and low power consumption.\r\n\r\nFast charging function: Just 10 minutes of charging time allows up to 3 hours of playback, perfect for spontaneous situations.",
+  "price": 14,
+  "stock": 48,
+  "sku": "redmi buds 6 play",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757546851/products/e5sebtkxgv61jwiz3my4.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757546851/products/pvir0yuw1ftao4hqzzhm.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757546852/products/syi9ptagcdhi9l0ambcd.jpg"
+  },
+  "tags": {
+    "tag1": "Readmi",
+    "tag2": "Airbuds",
+    "tag3": "Music",
+    "tag4": "Buds",
+    "tag5": "Readmi Buds"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c2a51c68d0ab7407635c94"
+  },
+  "name": "Boat Air Buds 2 Pro",
+  "category": "buds",
+  "brand": "Boat",
+  "desc": "Boat Airbuds 2 pro\r\n\r\n40dB Hybrid Active Noise Cancellation: Effective noise cancellation with a depth of 40dB and reduction of broadband noise at 2000Hz, ideal for low-frequency environments. Supports Transparency Mode.\r\n\r\nAI Clear All Call Noise Cancellation: Enhanced dual-microphone technology for clear calls and noise cancellation. Reduces wind noise up to 6m/s for uninterrupted communication.\r\n\r\n7h/38h Ultra-Long Battery Life: Up to 7 hours of playback on a single charge and a total of 38 hours with the charging case. Fast charging allows 10 minutes of charging time for 2 hours of playback.\r\n\r\n12.4mm titanium-coated diaphragm: High-quality speakers with a titanium-coated diaphragm and independent rear chamber structure. Four adjustable sound effects for a personalized listening experience.\r\n\r\nScope of delivery: 1x pair of Redmi Buds 6 Lite, 1x charging case, 2x pairs of silicone tips of different sizes, 1x user manual",
+  "price": 24,
+  "stock": 30,
+  "sku": "Boat Airbuds 2 pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757586714/products/cjwsib9cl5syamvegjdf.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757586715/products/juwktc8x6cqtgizztq35.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757586716/products/yhyqwazutb2ja5i70mp6.jpg"
+  },
+  "tags": {
+    "tag1": "Boat",
+    "tag2": "Airbuds",
+    "tag3": "Music",
+    "tag4": "Headphone",
+    "tag5": "Boat"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c2a68868d0ab7407635c9a"
+  },
+  "name": "Air Buds 3 pro",
+  "category": "buds",
+  "brand": "Apple",
+  "desc": "Apple AirBuds 3 Pro\r\n\r\nVISIONARY HEARING – AirPods Pro 2 deliver the world's first all-in-one hearing health experience: with a scientifically recognized hearing test, clinical-grade hearing aid functionality, and Reduce Loud Sounds. Coming fall 2024.\r\n\r\nINTELLIGENT NOISE CONTROL – Active Noise Cancellation blocks out up to 2x more background noise. Transparency Mode lets you hear your surroundings, while Adaptive Audio seamlessly blends Active Noise Cancellation and Transparency Mode for the best listening experience in any environment. And when you're talking to someone nearby, Conversation Detection automatically reduces the volume of whatever you're listening to.\r\n\r\nBETTER SOUND AND CALL QUALITY – The Apple-designed H2 chip delivers impressively immersive sound. The custom-engineered, low-distortion driver delivers brilliant highs and lows, and rich bass with impressive clarity. \r\n\r\nVoice isolation improves call quality in noisy environments.",
+  "price": 228,
+  "stock": 60,
+  "sku": "AirBuds 3 Pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587077/products/uazxogymzvdimgca7pux.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587078/products/vsjaacwo9fzzqocymagr.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587079/products/opvpsrf7ag6fd5f0uilr.jpg"
+  },
+  "tags": {
+    "tag1": "Apple",
+    "tag2": "Airbuds",
+    "tag3": "Airpods",
+    "tag4": "Buds",
+    "tag5": "Music"
+  },
+  "ratings": [
+    {
+      "userId": {
+        "$oid": "68c086d2ac1faf7137e9e083"
+      },
+      "rating": 4,
+      "review": "Amazing product",
+      "createdAt": {
+        "$date": "2025-09-14T16:16:09.895Z"
+      },
+      "_id": {
+        "$oid": "68c6ea49094cb33b6e54d3b9"
+      }
+    }
+  ],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "68c2a85568d0ab7407635c9f"
+  },
+  "name": "Apple AirPods Max Headphones",
+  "category": "headphones",
+  "brand": "Apple",
+  "desc": "APPLE HEADPHONE MAX\r\n\r\nULTIMATE OVER-EAR LISTENING EXPERIENCE – The Apple-designed dynamic driver delivers high-fidelity audio. Computational Audio combines a specialized acoustic design with the Apple H1 chip and software for a revolutionary listening experience.\r\n\r\nFIVE NEW COLORS – AirPods Max come in five new colors: Midnight, Polaris, Blue, Violet, and Orange. A matching Smart Case is also included.\r\n\r\nPERSONALIZED 3D AUDIO – With sound tailored to your specific ear shape and dynamic head tracking, AirPods Max deliver an immersive listening experience for perfect sound all around you. You can also listen to select songs, series, and movies in Dolby Atmos.\r\n\r\nDESIGNED FOR OPTIMAL ACOUSTICS – Designed with a mesh headband and memory foam ear cushions for an excellent over-ear fit that perfectly seals in the sound.",
+  "price": 504,
+  "stock": 29,
+  "sku": "Apple 4 Headphone",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587540/products/iiefswtjuoq7rjsvkqwt.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587540/products/bdhxs04aqnlxymus4l4a.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757587541/products/g7133squ5ftjpl9nutnd.jpg"
+  },
+  "tags": {
+    "tag1": "Apple",
+    "tag2": "Headphone",
+    "tag3": "Music",
+    "tag4": "Wireless",
+    "tag5": "Headset"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c2b6c168d0ab7407635d12"
+  },
+  "name": "JBL Air Buds 5 Pro",
+  "category": "buds",
+  "brand": "JBL",
+  "desc": "JBL AirBuds 5 Pro\r\n\r\nJBL Deep Bass Sound for even more fun: With the deep bass of the 8 mm driver, the comfortable Bluetooth in-ear headphones tune everyday life and are a real all-rounder with JBL sound quality.\r\n\r\nThe long battery life of up to 20 hours ensures ultimate music enjoyment all day long / Enjoy up to 5 hours of playback time and an additional 15 hours of music with the charging case.\r\n\r\nThe ergonomically shaped in-ear pins of the wireless headphones ensure a comfortable fit - three different earplug sizes are supplied for a perfect fit.\r\n\r\nWith one tap, calls and music can be managed or the voice assistant can be used / Thanks to Dual Connect, the earpods can be used individually, saving battery life",
+  "price": 36,
+  "stock": 50,
+  "sku": "JBL AirBuds 5 Pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591231/products/dvhj0nwjfqilbvuuafhw.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591232/products/htwvopaavufww39w0xti.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591233/products/fohem2fkmrywqdlyabw9.jpg"
+  },
+  "tags": {
+    "tag1": "JBL",
+    "tag2": "Music",
+    "tag3": "AirBuds",
+    "tag4": "Buds",
+    "tag5": "Smart"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c2b78b68d0ab7407635d15"
+  },
+  "name": "Apple Watch Series 10",
+  "category": "smartwatch",
+  "brand": "Apple",
+  "desc": "Apple Watch Series 10\r\n\r\nWHY APPLE WATCH SERIES 10 – Larger display with up to 30 percent more display area.* A thinner and lighter design, even more comfortable to wear.* Advanced health and fitness features for valuable insights.* Safety features summon help when you need it.* Faster charging for 80 percent battery in about 30 minutes.*\r\n\r\nMORE HEALTH INFO – Take an ECG anytime.* Get alerts for high and low heart rates or irregular heart rhythms.* Understand your cycle and get retrospective ovulation estimates.* View overnight health metrics like heart rate, respiratory rate, and more in the Vital Signs app.* Track your sleep and get alerts when Apple Watch detects signs of sleep apnea.*\r\n\r\nPOWER YOUR FITNESS – Measure all the ways you move. With activity rings that you can customize to your lifestyle. Get advanced metrics for different workouts with the Training app. Track the intensity of your workouts with Training Load. Use depth and water temperature sensors for your water adventures. And with Apple Watch, you get 3 months of Apple Fitness+ free.*\r\n\r\nSTAY CONNECTED – Send a text message, take a call, listen to music and podcasts, use Siri, and get notifications while you're on the go. Apple Watch Series 10 (GPS) works with your iPhone and Wi-Fi to keep you connected.\r\n\r\nINNOVATIVE SAFETY FEATURES – Accident detection and fall detection can alert emergency services in the event of a serious car accident or fall. With Emergency SOS, calling for help is as easy as pressing a button.* \r\n\r\nRoute companion automatically notifies the person you want when you reach your destination.",
+  "price": 204,
+  "stock": 74,
+  "sku": "i Smart Watch 6 Pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591433/products/krcq3d3utqo6zcqnhpqd.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591433/products/bvjv9opuo5rqhuf1ifzn.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591434/products/lwajv3vcpw2jbadzxrh8.jpg"
+  },
+  "tags": {
+    "tag1": "Smart Watch",
+    "tag2": "Watch",
+    "tag3": "Apple",
+    "tag4": "i watch",
+    "tag5": "Device"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c2b81a68d0ab7407635d18"
+  },
+  "name": "new Redmi Smart Watch 5 Pro",
+  "category": "smartwatch",
+  "brand": "new Redmi",
+  "desc": "Redmi Smart Watch 5 Pro new",
+  "price": 49,
+  "stock": 47,
+  "sku": "redmi smartwatch 7 pro max",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591576/products/coebmysf3ysvtavvirmg.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591577/products/kqtbiauzeutuknxkih89.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757591577/products/kj2aqjnemr4ev8nwb7cy.jpg"
+  },
+  "tags": {
+    "tag1": "Redmi new",
+    "tag2": "Smart Watch new",
+    "tag3": "Watch new",
+    "tag4": "Smart new",
+    "tag5": "Device new"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c3144db38d09fda2f8bbb8"
+  },
+  "name": "JBL Portable Speakers",
+  "category": "Speaker",
+  "brand": "JBL",
+  "desc": "JBL Portable Speakers\r\n",
+  "price": 79,
+  "stock": 60,
+  "sku": "JBL Speakers 8 pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615178/products/gugqkutc3minc2qly96v.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615180/products/brbqp5cywm8qtagvefxa.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615181/products/rnswuurg5v3br3iooenz.jpg"
+  },
+  "tags": {
+    "tag1": "JBL",
+    "tag2": "Speaker",
+    "tag3": "Music",
+    "tag4": "Speakers",
+    "tag5": "Portable"
+  },
+  "ratings": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c316b8ac5648c6f730708b"
+  },
+  "name": "Anker Portable Speaker for Travelling",
+  "category": "Speaker",
+  "brand": "Anker",
+  "desc": "Anker Powerful Speaker for Travelling",
+  "price": 17,
+  "stock": 0,
+  "sku": "Anker Speaker 9 pro",
+  "image": {
+    "img1": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615797/products/bcsxdlgqd80ahwbtqvew.jpg",
+    "img2": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615799/products/xldr66j9t1ihzyvhenmp.jpg",
+    "img3": "https://res.cloudinary.com/dunqhg4uq/image/upload/v1757615800/products/ipi8nvyrwhoihk5jyirt.jpg"
+  },
+  "tags": {
+    "tag1": "Speaker",
+    "tag2": "Travel",
+    "tag3": "Anker",
+    "tag4": "Portable",
+    "tag5": "Speakers"
+  },
+  "ratings": [],
+  "__v": 0
+}]

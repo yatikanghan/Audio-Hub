@@ -45,7 +45,25 @@ Before running the system, ensure you have the following installed:
    ```bash
    npm install
 
-3. **Configure the Database**:
+3. **Database Setup** :
+Database setup : 
+-	Create Database name with AudioHub
+
+-	Create collection “orders” 
+-	import JSON file https://github.com/yatikanghan/Audio-Hub/blob/main/DatabaseRefrences/AudioHub.orders.json 
+
+-	Create collection “products”
+-	Import JSON file https://github.com/yatikanghan/Audio-Hub/blob/main/DatabaseRefrences/AudioHub.products.json 
+
+-	Create collection “ratings”
+-	Import JSON file https://github.com/yatikanghan/Audio-Hub/blob/main/DatabaseRefrences/AudioHub.ratings.json 
+
+-	Create collection “users” 
+-	Import JSON file https://github.com/yatikanghan/Audio-Hub/blob/main/DatabaseRefrences/AudioHub.users.json 
+
+
+
+4. **Configure the Database**:
 
 
    Update the index.js file located in main directory with your **database credentials** and i alredy put my cloudinary credentials:
@@ -59,11 +77,11 @@ Before running the system, ensure you have the following installed:
      dbconnect();
 
 
-4. **Build & Run the application** :
+5. **Build & Run the application** :
    ```bash
    node index.js
 
-5. **Access Point** :
+6. **Access Point** :
    ```bash
    http://localhost:3000/
 
